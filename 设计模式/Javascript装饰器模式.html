@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Javascript装饰器模式 | central park</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/assets/css/0.styles.3f949b7f.css" as="style"><link rel="preload" href="/assets/js/app.40b58ba7.js" as="script"><link rel="preload" href="/assets/js/2.f70d309f.js" as="script"><link rel="preload" href="/assets/js/32.42047177.js" as="script"><link rel="prefetch" href="/assets/js/10.2b410955.js"><link rel="prefetch" href="/assets/js/11.d923aa01.js"><link rel="prefetch" href="/assets/js/12.5ba5e05d.js"><link rel="prefetch" href="/assets/js/13.6b5c1377.js"><link rel="prefetch" href="/assets/js/14.038019f7.js"><link rel="prefetch" href="/assets/js/15.75fed763.js"><link rel="prefetch" href="/assets/js/16.14e1394f.js"><link rel="prefetch" href="/assets/js/17.e5a57e49.js"><link rel="prefetch" href="/assets/js/18.ba771a4a.js"><link rel="prefetch" href="/assets/js/19.da4f655e.js"><link rel="prefetch" href="/assets/js/20.1720851d.js"><link rel="prefetch" href="/assets/js/21.e78b3db0.js"><link rel="prefetch" href="/assets/js/22.0bc3bed5.js"><link rel="prefetch" href="/assets/js/23.adba2105.js"><link rel="prefetch" href="/assets/js/24.c4c88a31.js"><link rel="prefetch" href="/assets/js/25.7fca3201.js"><link rel="prefetch" href="/assets/js/26.6dba630d.js"><link rel="prefetch" href="/assets/js/27.9e2aa1d9.js"><link rel="prefetch" href="/assets/js/28.b7246d72.js"><link rel="prefetch" href="/assets/js/29.5792c810.js"><link rel="prefetch" href="/assets/js/3.45a93981.js"><link rel="prefetch" href="/assets/js/30.3f6c38ee.js"><link rel="prefetch" href="/assets/js/31.ba180a28.js"><link rel="prefetch" href="/assets/js/33.5bdc472d.js"><link rel="prefetch" href="/assets/js/4.c9878ffb.js"><link rel="prefetch" href="/assets/js/5.ec07def1.js"><link rel="prefetch" href="/assets/js/6.1d35ff3d.js"><link rel="prefetch" href="/assets/js/7.49dde202.js"><link rel="prefetch" href="/assets/js/8.ba23d01a.js"><link rel="prefetch" href="/assets/js/9.f7202086.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3f949b7f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="./logo.png" alt="central park" class="logo"> <span class="site-name can-hide">central park</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Javascript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构与算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>设计模式</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式/Javascript单例模式.html" class="sidebar-link">Javascript单例模式</a></li><li><a href="/设计模式/Javascript观察者模式.html" class="sidebar-link">Javascript之观察者模式</a></li><li><a href="/设计模式/Javascript装饰器模式.html" class="active sidebar-link">Javascript装饰器模式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/设计模式/Javascript享元模式.html" class="sidebar-link">Javascript之享元模式</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络相关</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="javascript装饰器模式"><a href="#javascript装饰器模式" class="header-anchor">#</a> Javascript装饰器模式</h1> <p>装饰器模式：在不改变原对象的基础上，通过对其进行包装拓展（添加属性或者方法）使原有对象可以满足用户的更复杂需求。</p> <h3 id="实现"><a href="#实现" class="header-anchor">#</a> 实现</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fn1 by call'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fn2 by call'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fn3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fn3 by call'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>现在需要一个对调用方法名字的打印。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn1<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fn1 by call'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn2<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fn2 by call'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fn3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn3<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fn3 by call'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// fn1</span>
+<span class="token comment">// fn1 by call </span>
+<span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// fn2</span>
+<span class="token comment">// fn2 by call </span>
+<span class="token function">f3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// fn3</span>
+<span class="token comment">// fn3 by call </span>
+</code></pre></div><p>更简单的写法：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 装饰器：方法执行前包装一层</span>
+<span class="token keyword">function</span> <span class="token function">decorator</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">decorator</span><span class="token punctuation">(</span>fn1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">decorator</span><span class="token punctuation">(</span>fn2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">decorator</span><span class="token punctuation">(</span>fn3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// fn1</span>
+<span class="token comment">// fn1 by call</span>
+<span class="token comment">// fn2</span>
+<span class="token comment">// fn2 by call</span>
+<span class="token comment">// fn3</span>
+<span class="token comment">// fn3 by call</span>
+</code></pre></div><p>这是一种可以在不了解原有功能的基础上对功能拓展模式，这是对原有功能的一种增强与拓展。</p> <h3 id="装饰类"><a href="#装饰类" class="header-anchor">#</a> 装饰类</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+<span class="token comment">/**
+* 对target添加一个静态属性
+* @param {class} 需要操作的类
+*/</span>
+<span class="token keyword">function</span> <span class="token function">testable</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    target<span class="token punctuation">.</span>isTestable <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">testable</span><span class="token punctuation">(</span>MyClass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>MyClass<span class="token punctuation">.</span>isTestable<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre></div><h3 id="装饰类的属性"><a href="#装饰类的属性" class="header-anchor">#</a> 装饰类的属性</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">readonly</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> descriptor <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    descriptor<span class="token punctuation">.</span>writable <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> descriptor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> cls <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token string">'abc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// abc</span>
+<span class="token comment">// 定义属性只读</span>
+<span class="token function">readonly</span><span class="token punctuation">(</span><span class="token class-name">MyClass</span><span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">let</span> cls <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token string">'bca'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 抛出错误 this.name不可修改</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/设计模式/Javascript观察者模式.html" class="prev">
+        Javascript之观察者模式
+      </a></span> <span class="next"><a href="/设计模式/Javascript享元模式.html">
+        Javascript之享元模式
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.40b58ba7.js" defer></script><script src="/assets/js/2.f70d309f.js" defer></script><script src="/assets/js/32.42047177.js" defer></script>
+  </body>
+</html>
