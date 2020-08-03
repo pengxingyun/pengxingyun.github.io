@@ -1,11 +1,11 @@
 # Javascript数据结构与算法之队列
 
-### 队列的定义:
+## 队列的定义
 队列是一种特殊的线性表，仅能够在队列头部进行操作，有着先进先出(后进后出)的特性。即FIFO(first in first out)。
 
 简单来说队列就是列表。
 
-### 队列的实现：
+## 队列的实现
 队列有以下几个方法：
 * enqueue 从队列尾部添加一个元素
 * dequeue 从队列头部删除一个元素
@@ -44,7 +44,7 @@ class Queue {
     }
 }
 ````
-### 队列的应用练习：
+## 队列的应用练习
 leetcode题目练习：
 
 1. [用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)【简单】

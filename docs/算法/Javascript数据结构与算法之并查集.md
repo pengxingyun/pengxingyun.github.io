@@ -1,13 +1,13 @@
 # Javascript数据结构与算法之并查集
 
-### 并查集的定义:
+## 并查集的定义
 在一些应用问题中，你需要`将n个不同的元素划分成多个不相交的集合`，并查集是一种非常简单但是非常有效的集合。它支持下面3种操作：
 
 * union(root1, root2) 把集合root2合并入集合root1中，要求是root1和root2互不相交。
 * find(x) 搜索x所在的集合，返回该集合的名字。
 * init， 将s个元素初始化为s个只有一个元素的子集合。
 
-### 并查集的实现：
+## 并查集的实现
 
 show me code:
 
@@ -37,7 +37,7 @@ class UFSets {
     }
 }
 ````
-### 并查集的应用练习：
+## 并查集的应用练习
 leetcode题目练习：
 
 1. [朋友圈](https://leetcode-cn.com/problems/friend-circles/)【中等】
