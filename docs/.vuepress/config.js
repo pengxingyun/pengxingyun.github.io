@@ -1,6 +1,6 @@
 module.exports = {
     title: 'central park',
-    description: 'Just playing around',
+    description: 'Just front-end docs',
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
     ],
@@ -58,9 +58,18 @@ module.exports = {
                 title: '网络相关',
                 children: [
                     '网络相关/HTTP传输流程',
-                    '网络相关/HTTP状态码'
+                    '网络相关/HTTP状态码',
+                    '网络相关/鉴权'
                 ]
-            }
+            },
+            // {
+            //     title: 'webpack',
+            //     children: [
+            //         // 'webpack/webpack入门',
+            //         // 'webpack/webpack深入',
+            //         // 'webpack/分析webpack打包原理'
+            //     ]
+            // }
         ]
     }
 }
