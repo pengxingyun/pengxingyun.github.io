@@ -13,7 +13,7 @@ git init
 git add -A
 git commit -m 'deploy'
 
-# 如果发布到 https://<USERNAME>.github.io
+# 部署到 gh-pages分支
 git push -f git@github.com:pengxingyun/pengxingyun.github.io.git master:gh-pages
 
 cd -
