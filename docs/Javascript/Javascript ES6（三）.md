@@ -1,5 +1,5 @@
 # Javascript ES6（三）
-### JS的类
+## JS的类
 **ES6** 的类起初是作为 **ES5** 传统继承模型的语法糖，但添加了许多特性来减少错误。
 ES5的实现类：
 ````js
@@ -74,7 +74,7 @@ h5er.sayName(); // re---fn
 h5er.showType(); // h5
 ````
 
-#### 为何要使用类的语法
+### 为何要使用类的语法
 尽管类与自定义类型之间有相似性，但仍然要记住一些重要的区别：
 1. 类声明不会被提升，这与函数定义不同。类声明的行为与 `let` 相似，因此在程序的执行到达声明处之前，类会存在于暂时性死区内。
 2. 类声明中的所有代码会自动运行在严格模式下，并且也无法退出严格模式。
@@ -84,13 +84,13 @@ h5er.showType(); // h5
 6. 试图在类的方法内部重写类名，会抛出错误。（不能在内部给类重新复制， 外部可以）
 7. **es5**继承无法继承静态方法。
 
-### 增强的数组功能
-#### Array.of
+## 增强的数组功能
+### Array.of
 ````js
 // 参数里面传入的数据都会变成arr的元素
 let arr = Array.of(1) // [1] 不同的是new Array(1)会创建一个长度为1的数组 [empty]
 ````
-#### Array.from
+### Array.from
 `Array.from`作用是将类数组对象转换为数组
 ````js
 let obj = {
@@ -108,7 +108,7 @@ function translate() {
 let numbers = translate(1, 2, 3);
 console.log(numbers); // 2,3,4
 ````
-#### find, findIndex
+### find, findIndex
 ````js
 let numbers = [25, 30, 35, 40, 45];
 console.log(numbers.find(n => n > 33)); // 35 找第一个>33的值
@@ -117,7 +117,7 @@ console.log(numbers.findIndex(n => n > 33)); // 2 找第一个>33的下标
 `find()` 与 `findIndex()` 方法在查找满足特定条件的数组元素时非常有用。但若想查找特定
 值，则使用 `indexOf()` 与 `lastIndexOf()` 方法会是更好的选择。
 
-#### fill
+### fill
 `fill()` 方法能使用特定值填充数组中的一个或多个元素。
 
 全部填充
@@ -134,7 +134,7 @@ console.log(numbers.toString()); // 1,2,1,1
 numbers.fill(0, 1, 3);
 console.log(numbers.toString()); // 1,0,0,1
 ````
-#### copyWithin
+### copyWithin
 `copyWithin()` 方法与 `fill()` 类似，可以一次性修改数组的多个元素。
 ````js
 let numbers = [1, 2, 3, 4];
@@ -148,8 +148,8 @@ numbers.copyWithin(2, 0);
 console.log(numbers.toString()); // 1,2,1,2
 ````
 
-### Promise
-#### 创建未决的Promise
+## Promise
+### 创建未决的Promise
 ````js
 // Node.js 范例
 let fs = require("fs");
@@ -186,7 +186,7 @@ promise.then(function(contents) {
 //     console.error(err.message);
 // })
 ````
-#### 创建已决的Promise
+### 创建已决的Promise
 ````js
 let p1 = Promise.resolve(42);
 let p2 = Promise.reject(43);
@@ -199,7 +199,7 @@ p2.catch(err => {
 })
 ````
 
-#### 非 Promise 的 Thenable
+### 非 Promise 的 Thenable
 当一个对象拥有一个能接受 `resolve` 与 `reject` 参数的 `then()` 方法，该对象就会被认为是一个非 Promise 的 thenable。
 ````js
 let thenable = {
@@ -212,7 +212,7 @@ p1.then(function(value) {
     console.log(value); // 42
 });
 ````
-#### 串联的Promise
+### 串联的Promise
 ````js
 let p1 = new Promise(function(resolve, reject) {
     resolve(42);
@@ -226,7 +226,7 @@ p1.then(res => {
 })
 ````
 
-#### Promise.all
+### Promise.all
 执行多个promise以数组形式返回值
 ````js
 let p1 = new Promise(function(resolve, reject) {
@@ -263,7 +263,7 @@ p4.catch(function(value) {
     console.log(value); // 43
 });
 ````
-#### Promise.race
+### Promise.race
 多个promise返回最先返回的值
 ````js
 let p1 = Promise.resolve(42);
@@ -300,7 +300,7 @@ p4.then(function(res) {
 ````
 p2是最先reject回来的，所以即使p1和p2执行完结果也会被忽略。
 
-### Proxy和Reflect
+## Proxy和Reflect
 `Proxy` 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。
 下面是 Proxy 支持的拦截操作一览，一共 13 种。
 
@@ -442,7 +442,7 @@ new proxy() // new Class----construct
 proxy() // fn run....apply
 ````
 
-#### 可被撤销的代理
+### 可被撤销的代理
 ````js
 let target = {
     name: "target"
@@ -454,7 +454,7 @@ revoke();
 console.log(proxy.name);
 ````
 
-### 模块封装
+## 模块封装
 ./example.js
 ````js
 // 导出数据
@@ -500,7 +500,7 @@ import {multiply, color, Rectangle} from './example.js';
 console.log(multiply(1, 2), color, new Rectangle(3, 4));
 ````
 
-#### 重命名导出与导入
+### 重命名导出与导入
 导出前重命名 ./example.js
 ````js
 function sum(num1, num2) {
@@ -512,7 +512,7 @@ export { sum as add }; // 导出sum为add 相当于 export {add: sum}
 ````js
 import { add as sum } from "./example.js";
 ````
-#### 模块的默认值
+### 模块的默认值
 ./example.js
 ````js
 export let color = "red"; // 单独绑定导出模块
