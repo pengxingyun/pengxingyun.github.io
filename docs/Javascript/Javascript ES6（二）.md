@@ -1,11 +1,11 @@
 # Javascript ES6（二）
 
-### 解构：更方便的数据访问
+## 解构：更方便的数据访问
 * 当使用解构来配合 `var` 、 `let` 或 `const` 来声明变量时，必须提供初始化器（即等号右边的值）。
 * 当解构赋值表达式的右侧（ `=` 后面的表达式）的计算结果为 `null` 或 `undefined` 时，会抛出错误。因为任何读取 `null` 或 `undefined` 的企图都会导致“运行时”错误（runtime error ）。
 
-#### 对象结构
-##### 解构赋值
+### 对象结构
+#### 解构赋值
 对象解构语法在赋值语句的左侧使用了对象字面量.
 ````js
 let node = {
@@ -40,33 +40,33 @@ console.log(name); // "foo"
 ````
 把 `node` 传递进了 `outputInfo`，且 `type`、`name` 完成了赋值。
 
-##### 默认值
+#### 默认值
 ````js
 let { type, name, value = true } = node;
 ````
 在 `node.value` 缺失、或者为 `undefined` 时，会使用默认值。
 
-##### 赋值给不同的本地变量名
+#### 赋值给不同的本地变量名
 
 ````js
 // 相当于：let localType = node.type, localName = node.name;
 let { type: localType, name: localName } = node;
 ````
 
-##### 赋值给不同的本地变量名 + 默认值
+#### 赋值给不同的本地变量名 + 默认值
 
 ````js
 // 相当于：let localType = node.type, localName = node.name || "bar";
 let { type: localType, name: localName = "bar" } = node;
 ````
 
-##### 嵌套的对象解构
+#### 嵌套的对象解构
 ````js
 // 提取 node.loc.start赋值到localStart
 let { loc: { start: localStart }} = node;
 ````
 
-#### 数组解构
+### 数组解构
 数组解构时，解构作用在数组内部的位置上，而不是作用在对象的具名属性上。
 ````js
 // 相当于 let firstColor = colors[0], secondColor = colors[1];
@@ -81,13 +81,13 @@ let [ , , thirdColor ] = colors;
 ````js
 [a, b] = [b, a];
 ````
-##### 剩余项
+#### 剩余项
 ````js
 // let firstColor = colors[0], restColors = colors.slice(1);
 let [ firstColor, ...restColors ] = colors;
 ````
 
-##### 克隆数组
+#### 克隆数组
 ES5
 ````js
 // 在 ES5 中克隆数组
@@ -103,7 +103,7 @@ var [...clonedColors] = colors;
 console.log(clonedColors); //"[red,green,blue]"
 ````
 
-#### 参数结构
+### 参数结构
 ````js
 function setCookie(name, value, { secure, path, domain, expires }) {
     // 设置 cookie 的代码
@@ -113,7 +113,7 @@ setCookie("type", "js", {
     expires: 60000
 });
 ````
-##### 解构的参数是必需的
+#### 解构的参数是必需的
 如果设置了解构参数，且解构参数没有设置默认值，那么解构参数必传。
 ````js
 // 设置了解构参数
@@ -127,7 +127,7 @@ setCookie("type", "js", {
 ````
 设置了默认值可以不传。
 
-##### 参数解构的默认值
+#### 参数解构的默认值
 你可以为参数解构提供可解构的默认值，就像在解构赋值时所做的那样，只需在其中每个参数后面添加等号并指定默认值即可。
 ````js
 function setCookie(name, value,
@@ -142,10 +142,10 @@ function setCookie(name, value,
 }
 ````
 
-### 符号与符号属性
+## 符号与符号属性
 ES5 的对象属性名都是字符串，这容易造成属性名的冲突。ES6 引入了一种新的基本类型：符号（ Symbol ）。表示独一无二的值。这样就从根本上防止属性名的冲突。
 
-#### 创建符号值
+### 创建符号值
 你可以使用全局 `Symbol` 函数来创建一个符号值, `Symbol` 函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述。
 ````js
     let s = Symbol('foo');
@@ -161,7 +161,7 @@ const obj = {
 const sym = Symbol(obj);
 sym // Symbol(abc)
 ````
-#### 使用符号值
+### 使用符号值
 作为属性名的`Symbol`, 你可以在任意能使用“需计算属性名”的场合使用符号。
 ````js
 let mySymbol = Symbol();
@@ -183,9 +183,9 @@ Object.defineProperty(a, mySymbol, { value: 'Hello!' });
 a[mySymbol] // "Hello!"
 ````
 
-#### 符号值的转换
+### 符号值的转换
 Symbol 值不能与其他类型的值进行运算，会报错。
-#### 共享符号值
+### 共享符号值
 你或许想在不同的代码段中使用相同的符号值，例如：假设在应用中需要在两个不同的对象类型中使用同一个符号属性，用来表示一个唯一标识符。跨越文件或代码来追踪符号值是很困难并且易错的，为此， **ES6** 提供了“全局符号注册表”供你在任意时间点进行访问。
 
 若你想创建共享符号值，应使用 `Symbol.for()` 方法而不是 `Symbol()` 方法。
@@ -200,7 +200,7 @@ console.log(uid); // "Symbol(uid)"
 若是，该方法会返回这个已存在的符号值；否则，会创建一个新的符号值，并使用该键值将
 其记录到全局符号注册表中，然后返回这个新的符号值。
 
-#### 检索符号属性
+### 检索符号属性
 `Object.keys()` 与 `Object.getOwnPropertyNames()` 方法可以检索对象的所有属性名称，前者返回所有的可枚举属性名称，而后者则返回所有属性名称而无视其是否可枚举。然而两者都不能返回符号类型的属性，以保持它们在 **ES5** 中的功能不发生变化。而 **ES6** 新增了`Object.getOwnPropertySymbols()` 方法，以便让你可以检索对象的符号类型属性。
 
 `Object.getOwnPropertySymbols()` 方法会返回一个数组，包含了对象自有属性名中的符号值。
@@ -215,7 +215,7 @@ console.log(symbols[0]); // "Symbol(uid)"
 console.log(object[symbols[0]]); // "12345"
 ````
 
-#### 使用知名符号暴露内部方法
+### 使用知名符号暴露内部方法
 除了定义自己使用的 Symbol 值以外，ES6 还提供了 11 个内置的 Symbol 值，指向语言内部使用的方法。
 
 * Symbol.hasInstance ：供 `instanceof` 运算符使用的一个方法，用于判断对象继承关系。
@@ -368,11 +368,11 @@ console.log(object[symbols[0]]); // "12345"
     ````
     上面代码通过指定`Symbol.unscopables`属性，使得`with`语法块不会在当前作用域寻找`foo`属性，即`foo`将指向外层作用域的变量。
     
-### Set与Map
+## Set与Map
 **Set**的作用主要用于检查某个值在列表中是否存在，**Map** 多数被用来提取数据，而
 不是仅检查键的存在性。
 
-#### Set
+### Set
 set是一个无重复值的列表
 ````js
 let set = new Set(); // ()里面无值()可省略 let set = new Set;
@@ -395,7 +395,7 @@ set.forEach(value => console.log(value)); // 1, 2
 let set = new Set([1,2]) // 将数组转换为Set
 let arr = [...set] // 将 Set 转换为数组
 ````
-#### WeakSet
+### WeakSet
 **WeakSet** 的成员只能是对象，而不能是其他类型的值。
 **WeakSet** 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于 **WeakSet** 之中。
 **WeakSet**主要实现了如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存。
@@ -408,7 +408,7 @@ wk.has(first); // false
 ````
 wk没有`size`，不可循环遍历。
 
-#### Map
+### Map
 **ES6** 的 **Map** 类型是键值对的有序列表，而键和值都可以是任意类型。
 ````js
 let map = new Map(); // ()里面无值()可省略 let map = new Map;
@@ -432,7 +432,7 @@ map.forEach(function(value, key, ownerMap) {
 // true
 ````
 
-#### WeakMap
+### WeakMap
 **WeakMap**只能用来存储键为对象的值
 ````js
 let first = {};
@@ -442,7 +442,7 @@ first = null; // 移除对于键的引用 同时wm也移除了
 wm.has(first); // false
 ````
 
-### 迭代器与生成器
+## 迭代器与生成器
 迭代器**Iterator**接口主要是用于`for...of`消费。还有扩展运算符`...`
 原生具备 Iterator 接口的数据结构如下。
 * Array
@@ -485,7 +485,7 @@ for(let item of obj){
 ````
 > 不能将箭头函数创建为生成器。
 
-#### 访问默认迭代器
+### 访问默认迭代器
 ````js
 let values = [1, 2, 3];
 let iterator = values[Symbol.iterator]();
@@ -495,7 +495,7 @@ console.log(iterator.next()); // "{ value: 3, done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ````
 
-#### 创建可迭代对象
+### 创建可迭代对象
 ````js
 obj = {
     items: [1,2,3],
@@ -517,7 +517,7 @@ for(let item of obj) {
 
 ````
 
-#### 集合的迭代器
+### 集合的迭代器
 `ES6` 具有三种集合对象类型：数组、 `Map` 与 `Set`。这三种类型都拥有如下的迭代器，有助于探索它们的内容：
 * entries() ：返回一个包含键值对的迭代器；
 * values() ：返回一个包含集合中的值的迭代器；
@@ -548,7 +548,7 @@ console.log(key, value);
 // c c
 ````
 
-#### 传递参数给迭代器
+### 传递参数给迭代器
 ````js
 function *createIterator() {
 let first = yield 1;
@@ -563,7 +563,7 @@ console.log(iterator.next(5)); // "{ value: 8, done: false }" second = 5;
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ````
 
-#### 生成器委托
+### 生成器委托
 ````js
 function *createNumberIterator() {
     yield 1;
