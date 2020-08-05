@@ -16,11 +16,12 @@ module.exports = {
                 title: 'Javascript',
                 children: [
                     '/Javascript/立即执行函数的多种写法',
-                    '/Javascript/设计一个会过期的localStorage',
                     '/Javascript/作用域相关的问题',
+                    '/Javascript/宏任务和微任务',
                     '/Javascript/Javascript ES6（一）',
                     '/Javascript/Javascript ES6（二）',
                     '/Javascript/Javascript ES6（三）',
+                    '/Javascript/设计一个会过期的localStorage',
                     '/Javascript/Javascript实现常用排序'
                 ]
             },
