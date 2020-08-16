@@ -15,6 +15,7 @@ module.exports = {
             {
                 title: 'Javascript',
                 children: [
+                    '/Javascript/Javascript两链一包还有this',
                     '/Javascript/严格模式和非严格模式区别',
                     '/Javascript/立即执行函数的多种写法',
                     '/Javascript/作用域相关的问题',
