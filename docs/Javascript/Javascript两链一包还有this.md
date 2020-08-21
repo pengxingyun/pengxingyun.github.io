@@ -30,11 +30,9 @@ function Programmer(job) {
     this.job = job;
 }
 
-Programmer.prototype = new Person('bar'); // 把Person的实例对象挂载到原型链上实现继承
+Programmer.prototype = new Person('bar');
 
 let h5er = new Programmer('h5'); // // 原型链 h5er -> Programmer -> Person -> Object -> null
-
-h5er.name // bar
 ```
 
 ## 作用域链
@@ -109,3 +107,4 @@ instance2 = null; // instance2 结束引用 触发垃圾回收
 ```
 ### 闭包的作用
 1. 私有变量：从上面可以看出来 `i` 只对外面暴漏一个查看方法，无法直接修改。如果不暴露`value` 查看也不能查看。只能通过暴漏的接口对它进行操作。
+2. 不清除外部的引用，内部对外的变量会一直都存在。
