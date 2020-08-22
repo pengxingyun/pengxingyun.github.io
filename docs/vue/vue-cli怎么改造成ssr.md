@@ -192,7 +192,7 @@ app.listen(3000, () => {
 cd server && node index.js
 ```
 
-涉及到项目的开发，建议使用 nuxt.js 本文仅限于研究原理实现。
+涉及到项目的开发，建议使用 nuxt.js, 本文仅限于研究原理实现。
 
 
 源码地址： https://github.com/pengxingyun/vue-ssr

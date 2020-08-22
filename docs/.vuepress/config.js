@@ -77,7 +77,7 @@ module.exports = {
                 children: [
                     'webpack/webpack常用配置解析',
                     // 'webpack/webpack深入',
-                    // 'webpack/分析webpack打包原理'
+                    'webpack/分析webpack打包原理'
                 ]
             }
         ]
