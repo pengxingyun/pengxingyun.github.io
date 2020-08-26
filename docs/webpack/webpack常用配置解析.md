@@ -322,7 +322,7 @@ module.exports = {
 npm install clean-webpack-plugin --save-dev
 ```
 ```js
-const { CleanWebpackPlugin } = require("clean-webpackplugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const path = require('path');
 module.exports = {
