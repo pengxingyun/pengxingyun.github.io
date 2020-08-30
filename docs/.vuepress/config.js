@@ -15,7 +15,7 @@ module.exports = {
             {
                 title: 'CSS',
                 children: [
-                    'CSS/介绍下BFC、IFC、FFC、GFC'
+                    'CSS/介绍下BFC，IFC，FFC，GFC'
                 ]
             },
             {
