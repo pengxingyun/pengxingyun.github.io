@@ -46,6 +46,20 @@ function getName() {
 }
 getName(); // getname 作用域链 getName -> window/global
 ```
+作用域不是根据 **运行位置** 确定的，是根据 **定义位置** 确定。
+```js
+let name = 'window';
+function getName() {
+    console.log(name);
+}
+
+function fn() {
+    let name = 'fn';
+    getName();
+}
+
+fn(); // window
+```
 ## this
 我们知道 `this` 对象是在运行时基于函数的执行环境绑定的：在全局函数中，`this` 等于 `window`， 而当函数作为某个对象的方法调用时，`this` 等于那个对象。
 ```js

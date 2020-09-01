@@ -38,7 +38,8 @@ module.exports = {
             {
                 title: 'Vue',
                 children: [
-                    '/vue/vue-cli怎么改造成ssr'
+                    '/vue/vue-cli怎么改造成ssr',
+                    '/vue/webpack+vue-loader手动配置项目'
                 ]
             },
             {
