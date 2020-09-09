@@ -91,7 +91,8 @@ module.exports = {
             {
                 title: 'nodejs',
                 children: [
-                    'nodejs/npm不完全解析'
+                    'nodejs/npm不完全解析',
+                    'nodejs/pm2文档'
                 ]
             }
         ]
