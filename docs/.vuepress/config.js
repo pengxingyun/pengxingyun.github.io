@@ -25,6 +25,8 @@ module.exports = {
                     '/Javascript/防抖和节流',
                     '/Javascript/手写深拷贝',
                     '/Javascript/手写ajax',
+                    '/Javascript/手写Promise',
+                    '/Javascript/原生实现下Array的方法',
                     '/Javascript/严格模式和非严格模式区别',
                     '/Javascript/立即执行函数的多种写法',
                     '/Javascript/作用域相关的问题',
