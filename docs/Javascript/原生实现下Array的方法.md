@@ -113,7 +113,22 @@ Array.prototype.find = function(cb, thisArg) {
 ```
 ## flat
 按照一个可指定的深度递归遍历数组，默认值为1
-todo...
+```js
+let arr = [1,2,[3,4,[5,6]]]
+arr.flat(Infinity); // [1,2,3,4,5,6]
+```
+```js
+Array.prototype.flat = function flat(depth = 1) {
+    return depth ? Array.prototype.reduce.call(this, function(acc, cur) {
+        if(Array.isArray(cur)) {
+            acc.push.apply(acc, flat.call(cur, depth - 1));
+        } else {
+            acc.push(cur);
+        }
+        return acc;
+    }, []) : Array.prototype.slice.call(this);
+}
+```
 ## Array.isArray
 用于确定传递的值是否是一个 Array。
 ```js
@@ -124,3 +139,4 @@ Array.isArray = function(arg) {
     return Object.prototype.toString.call(arg) === '[object Array]';
 }
 ```
+
