@@ -26,7 +26,7 @@ function fn() {
 fn(1,2,3) // [1,2,3]
 ```
 
-### 思路
+## 思路
 总体来说，使用闭包对 `arguments` 参数缓存，然后修改闭包的 `toString`，返回对 `arguments` 的和。最后返回闭包函数。
 ```js
 function add() {
