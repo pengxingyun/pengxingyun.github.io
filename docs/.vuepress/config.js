@@ -21,6 +21,7 @@ module.exports = {
             {
                 title: 'Javascript',
                 children: [
+                    '/Javascript/原生实现下Array的方法',
                     '/Javascript/Javascript两链一包还有this',
                     '/Javascript/防抖和节流',
                     '/Javascript/手写深拷贝',
@@ -35,7 +36,9 @@ module.exports = {
                     '/Javascript/Javascript ES6（二）',
                     '/Javascript/Javascript ES6（三）',
                     '/Javascript/设计一个会过期的localStorage',
-                    '/Javascript/Javascript实现常用排序'
+                    '/Javascript/Javascript实现常用排序',
+                    '/Javascript/一道题看事件队列怎么写',
+                    '/Javascript/实现add满足以下功能'
                 ]
             },
             {
@@ -96,6 +99,11 @@ module.exports = {
                 children: [
                     'nodejs/npm不完全解析',
                     'nodejs/pm2文档'
+                ]
+            },{
+                title: '需求和缺陷',
+                children: [
+                    '需求和缺陷/如何实现一个高亮关键字的搜索框'
                 ]
             }
         ]
