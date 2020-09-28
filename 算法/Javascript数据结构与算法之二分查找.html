@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Javascript数据结构与算法之二分查找 | central park</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="Just front-end docs">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.fb2b0e5f.js" as="script"><link rel="preload" href="/assets/js/2.4a6e408c.js" as="script"><link rel="preload" href="/assets/js/38.eca13021.js" as="script"><link rel="prefetch" href="/assets/js/10.9881f3e6.js"><link rel="prefetch" href="/assets/js/11.e6263b2d.js"><link rel="prefetch" href="/assets/js/12.3dd111bd.js"><link rel="prefetch" href="/assets/js/13.1dbe2336.js"><link rel="prefetch" href="/assets/js/14.e277a8ee.js"><link rel="prefetch" href="/assets/js/15.bcd5911c.js"><link rel="prefetch" href="/assets/js/16.a56af9eb.js"><link rel="prefetch" href="/assets/js/17.7e5b8f5a.js"><link rel="prefetch" href="/assets/js/18.64823cf1.js"><link rel="prefetch" href="/assets/js/19.edbfdfb0.js"><link rel="prefetch" href="/assets/js/20.468c4e8d.js"><link rel="prefetch" href="/assets/js/21.b9a24f03.js"><link rel="prefetch" href="/assets/js/22.74d9919a.js"><link rel="prefetch" href="/assets/js/23.3765d2d4.js"><link rel="prefetch" href="/assets/js/24.987146f3.js"><link rel="prefetch" href="/assets/js/25.1456b78e.js"><link rel="prefetch" href="/assets/js/26.3e2a8325.js"><link rel="prefetch" href="/assets/js/27.add26a51.js"><link rel="prefetch" href="/assets/js/28.9d5ba05f.js"><link rel="prefetch" href="/assets/js/29.8d60d6a8.js"><link rel="prefetch" href="/assets/js/3.a99730d9.js"><link rel="prefetch" href="/assets/js/30.19811446.js"><link rel="prefetch" href="/assets/js/31.72cca3f5.js"><link rel="prefetch" href="/assets/js/32.a5cb5e82.js"><link rel="prefetch" href="/assets/js/33.4f59465f.js"><link rel="prefetch" href="/assets/js/34.d124cc8f.js"><link rel="prefetch" href="/assets/js/35.5cd9336a.js"><link rel="prefetch" href="/assets/js/36.78918402.js"><link rel="prefetch" href="/assets/js/37.2ce5af46.js"><link rel="prefetch" href="/assets/js/39.fb8bbc2a.js"><link rel="prefetch" href="/assets/js/4.a5e1eadb.js"><link rel="prefetch" href="/assets/js/40.9cc6227d.js"><link rel="prefetch" href="/assets/js/41.8f6783a6.js"><link rel="prefetch" href="/assets/js/42.44e13fe8.js"><link rel="prefetch" href="/assets/js/43.212d8290.js"><link rel="prefetch" href="/assets/js/44.81d199f5.js"><link rel="prefetch" href="/assets/js/45.3791b0e8.js"><link rel="prefetch" href="/assets/js/46.fc6f591a.js"><link rel="prefetch" href="/assets/js/47.8d072f15.js"><link rel="prefetch" href="/assets/js/48.6c5cda3f.js"><link rel="prefetch" href="/assets/js/49.8b370b6f.js"><link rel="prefetch" href="/assets/js/5.9e9ea533.js"><link rel="prefetch" href="/assets/js/50.d8f5c01a.js"><link rel="prefetch" href="/assets/js/51.cc055b69.js"><link rel="prefetch" href="/assets/js/52.8f77dcff.js"><link rel="prefetch" href="/assets/js/53.96f3feb0.js"><link rel="prefetch" href="/assets/js/54.19532d51.js"><link rel="prefetch" href="/assets/js/55.85d0dfb8.js"><link rel="prefetch" href="/assets/js/6.70a4eb21.js"><link rel="prefetch" href="/assets/js/7.e0a3b951.js"><link rel="prefetch" href="/assets/js/8.97277659.js"><link rel="prefetch" href="/assets/js/9.7d7b65a7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="./logo.png" alt="central park" class="logo"> <span class="site-name can-hide">central park</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Javascript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>数据结构与算法</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/算法/Javascript数据结构与算法之队列.html" class="sidebar-link">Javascript数据结构与算法之队列</a></li><li><a href="/算法/Javascript数据结构与算法之栈.html" class="sidebar-link">Javascript数据结构与算法之栈</a></li><li><a href="/算法/Javascript数据结构与算法之链表.html" class="sidebar-link">Javascript数据结构与算法之链表</a></li><li><a href="/算法/Javascript数据结构与算法之二叉树.html" class="sidebar-link">Javascript数据结构与算法之二叉树</a></li><li><a href="/算法/Javascript数据结构与算法之bitmap.html" class="sidebar-link">Javascript数据结构与算法之bitmap</a></li><li><a href="/算法/Javascript数据结构与算法之堆.html" class="sidebar-link">Javascript数据结构与算法之堆</a></li><li><a href="/算法/Javascript数据结构与算法之并查集.html" class="sidebar-link">Javascript数据结构与算法之并查集</a></li><li><a href="/算法/Javascript数据结构与算法之广度优先搜索.html" class="sidebar-link">Javascript数据结构与算法之广度优先搜索</a></li><li><a href="/算法/Javascript数据结构与算法之深度优先搜索.html" class="sidebar-link">Javascript数据结构与算法之深度优先搜索</a></li><li><a href="/算法/Javascript数据结构与算法之二分查找.html" class="active sidebar-link">Javascript数据结构与算法之二分查找</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/算法/Javascript数据结构与算法之二分查找.html#二分查找的定义" class="sidebar-link">二分查找的定义</a></li><li class="sidebar-sub-header"><a href="/算法/Javascript数据结构与算法之二分查找.html#二分查找的应用练习" class="sidebar-link">二分查找的应用练习</a></li></ul></li><li><a href="/算法/Javascript数据结构与算法之回溯算法.html" class="sidebar-link">Javascript数据结构与算法之回溯算法</a></li><li><a href="/算法/Javascript数据结构与算法之贪心算法.html" class="sidebar-link">Javascript数据结构与算法之贪心算法</a></li><li><a href="/算法/Javascript数据结构与算法之动态规划.html" class="sidebar-link">Javascript数据结构与算法之动态规划</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nodejs</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>需求和缺陷</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="javascript数据结构与算法之二分查找"><a href="#javascript数据结构与算法之二分查找" class="header-anchor">#</a> Javascript数据结构与算法之二分查找</h1> <h2 id="二分查找的定义"><a href="#二分查找的定义" class="header-anchor">#</a> 二分查找的定义</h2> <p>如果你要查找的数据是有序的，二分查找算法比顺序查找算法更高效。</p> <p>要理解二分查找算 法的原理，可以想象一下你在玩一个猜数字游戏，这个数字位于 1~100 之间，而要猜的数 字是由你的朋友来选定的。游戏规则是，你每猜一个数字，你的朋友将会做出以下三种回 应中的一种:<br>
+(1) 猜对了; <br>
+(2) 猜大了; <br>
+(3) 猜小了。<br>
+根据以上规则，第一次猜 50 将会是最佳策略。如果猜的值太大，就猜 25。如果太小，就 应该猜 75。每一次猜测，都应该选择当前最小值和最大值的中间点(取决于你上次猜测 的结果是太大还是太小)。然后将这个中间值作为下次要猜的数字。只要你采用这个策略， 就可以用最少的次数猜出这个数字。</p> <h2 id="二分查找的应用练习"><a href="#二分查找的应用练习" class="header-anchor">#</a> 二分查找的应用练习</h2> <p>leetcode题目练习：</p> <ol><li><a href="https://leetcode-cn.com/problems/guess-number-higher-or-lower/" target="_blank" rel="noopener noreferrer">猜数字大小<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>【简单】</li> <li><a href="https://leetcode-cn.com/problems/first-bad-version/" target="_blank" rel="noopener noreferrer">第一个错误的版本<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>【简单】</li> <li><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/" target="_blank" rel="noopener noreferrer">在排序数组中查找元素的第一个和最后一个位置<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>【中等】</li></ol> <h4 id="_1-猜数字大小"><a href="#_1-猜数字大小" class="header-anchor">#</a> 1. 猜数字大小</h4> <h5 id="题目描述"><a href="#题目描述" class="header-anchor">#</a> 题目描述：</h5> <p>我们正在玩一个猜数字游戏。 游戏规则如下：
+我从 <strong>1</strong> 到 <em>n</em> 选择一个数字。 你需要猜我选择了哪个数字。
+每次你猜错了，我会告诉你这个数字是大了还是小了。
+你调用一个预先定义好的接口 <code>guess(int num)</code>，它会返回 3 个可能的结果（<code>-1</code>，<code>1</code> 或 <code>0</code>）：</p> <div class="language- extra-class"><pre class="language-text"><code>-1 : 我的数字比较小
+ 1 : 我的数字比较大
+ 0 : 恭喜！你猜对了！
+</code></pre></div><h5 id="示例"><a href="#示例" class="header-anchor">#</a> 示例 :</h5> <div class="language- extra-class"><pre class="language-text"><code>输入: n = 10, pick = 6
+输出: 6
+</code></pre></div><h5 id="解题思路"><a href="#解题思路" class="header-anchor">#</a> 解题思路：</h5> <p>二分查找</p> <p>代码实现：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** 
+ * Forward declaration of guess API.
+ * @param {number} num   your guess
+ * @return 	            -1 if num is lower than the guess number
+ *			             1 if num is higher than the guess number
+ *                       otherwise return 0
+ * var guess = function(num) {}
+ */</span>
+
+<span class="token comment">/**
+ * @param {number} n
+ * @return {number}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">guessNumber</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> r <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>l <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> m <span class="token operator">=</span> l <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>r <span class="token operator">-</span> l<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">guess</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            r <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">guess</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            l <span class="token operator">=</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> m<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_2-第一个错误的版本"><a href="#_2-第一个错误的版本" class="header-anchor">#</a> 2. 第一个错误的版本</h4> <h5 id="题目描述-2"><a href="#题目描述-2" class="header-anchor">#</a> 题目描述：</h5> <p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。</p> <p>假设你有 <code>n</code> 个版本 <code>[1, 2, ..., n]</code>，你想找出导致之后所有版本出错的第一个错误的版本。</p> <p>你可以通过调用 <code>bool isBadVersion(version)</code> 接口来判断版本号 <code>version</code> 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。</p> <h5 id="示例-2"><a href="#示例-2" class="header-anchor">#</a> 示例:</h5> <div class="language- extra-class"><pre class="language-text"><code>给定 n = 5，并且 version = 4 是第一个错误的版本。
+
+调用 isBadVersion(3) -&gt; false
+调用 isBadVersion(5) -&gt; true
+调用 isBadVersion(4) -&gt; true
+
+所以，4 是第一个错误的版本。 
+</code></pre></div><h5 id="解题思路-2"><a href="#解题思路-2" class="header-anchor">#</a> 解题思路：</h5> <p>判断isBadVersion()</p> <p>true: r = m;</p> <p>false: l = m + 1;</p> <p>代码实现：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * Definition for isBadVersion()
+ * 
+ * @param {integer} version number
+ * @return {boolean} whether the version is bad
+ * isBadVersion = function(version) {
+ *     ...
+ * };
+ */</span>
+
+<span class="token comment">/**
+ * @param {function} isBadVersion()
+ * @return {function}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">solution</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">isBadVersion</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> r <span class="token operator">=</span> n<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>l <span class="token operator">&lt;</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> m <span class="token operator">=</span> l <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>r <span class="token operator">-</span> l<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isBadVersion</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                r <span class="token operator">=</span> m<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                l <span class="token operator">=</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> l<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_3-在排序数组中查找元素的第一个和最后一个位置"><a href="#_3-在排序数组中查找元素的第一个和最后一个位置" class="header-anchor">#</a> 3. 在排序数组中查找元素的第一个和最后一个位置</h4> <h5 id="题目描述-3"><a href="#题目描述-3" class="header-anchor">#</a> 题目描述：</h5> <p>给定一个按照升序排列的整数数组 <code>nums</code>，和一个目标值 <code>target</code>。找出给定目标值在数组中的开始位置和结束位置。</p> <p>你的算法时间复杂度必须是 <em>O(log n)</em> 级别。</p> <p>如果数组中不存在目标值，返回 <code>[-1, -1]</code>。</p> <h5 id="示例-1"><a href="#示例-1" class="header-anchor">#</a> 示例 1:</h5> <div class="language- extra-class"><pre class="language-text"><code>输入: nums = [5,7,7,8,8,10], target = 8
+输出: [3,4]
+</code></pre></div><h5 id="示例-2-2"><a href="#示例-2-2" class="header-anchor">#</a> 示例 2:</h5> <div class="language- extra-class"><pre class="language-text"><code>输入: nums = [5,7,7,8,8,10], target = 6
+输出: [-1,-1]
+</code></pre></div><h5 id="解题思路-3"><a href="#解题思路-3" class="header-anchor">#</a> 解题思路：</h5> <p>代码实现：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">searchRange</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span> target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+     <span class="token keyword">let</span> <span class="token function-variable function">compute</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span>target<span class="token punctuation">,</span> left <span class="token operator">=</span> <span class="token boolean">true</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+         <span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> r <span class="token operator">=</span> nums<span class="token punctuation">.</span>length
+         
+         <span class="token keyword">while</span><span class="token punctuation">(</span>l <span class="token operator">&lt;</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            
+             <span class="token keyword">let</span> mid <span class="token operator">=</span> l <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>r <span class="token operator">-</span> l<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&gt;</span> target <span class="token operator">||</span> <span class="token punctuation">(</span>left <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 r <span class="token operator">=</span> mid
+             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                 l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>    
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+
+         <span class="token keyword">return</span> l 
+     <span class="token punctuation">}</span>
+
+     <span class="token keyword">let</span> leftinx <span class="token operator">=</span> <span class="token function">compute</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+     
+     <span class="token keyword">if</span><span class="token punctuation">(</span>leftinx <span class="token operator">===</span> nums<span class="token punctuation">.</span>length <span class="token operator">||</span> nums<span class="token punctuation">[</span>leftinx<span class="token punctuation">]</span> <span class="token operator">!==</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> res <span class="token comment">// target太大，做边界一直右移到末端也没值；target太小，右边界左移到第一个元素也没找到；</span>
+
+     res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> leftinx<span class="token punctuation">;</span>
+     res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">compute</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+
+     <span class="token keyword">return</span> res
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/算法/Javascript数据结构与算法之深度优先搜索.html" class="prev">
+        Javascript数据结构与算法之深度优先搜索
+      </a></span> <span class="next"><a href="/算法/Javascript数据结构与算法之回溯算法.html">
+        Javascript数据结构与算法之回溯算法
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.fb2b0e5f.js" defer></script><script src="/assets/js/2.4a6e408c.js" defer></script><script src="/assets/js/38.eca13021.js" defer></script>
+  </body>
+</html>

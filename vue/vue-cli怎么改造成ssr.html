@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue-cli怎么改造成ssr | central park</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="Just front-end docs">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.fb2b0e5f.js" as="script"><link rel="preload" href="/assets/js/2.4a6e408c.js" as="script"><link rel="preload" href="/assets/js/32.a5cb5e82.js" as="script"><link rel="prefetch" href="/assets/js/10.9881f3e6.js"><link rel="prefetch" href="/assets/js/11.e6263b2d.js"><link rel="prefetch" href="/assets/js/12.3dd111bd.js"><link rel="prefetch" href="/assets/js/13.1dbe2336.js"><link rel="prefetch" href="/assets/js/14.e277a8ee.js"><link rel="prefetch" href="/assets/js/15.bcd5911c.js"><link rel="prefetch" href="/assets/js/16.a56af9eb.js"><link rel="prefetch" href="/assets/js/17.7e5b8f5a.js"><link rel="prefetch" href="/assets/js/18.64823cf1.js"><link rel="prefetch" href="/assets/js/19.edbfdfb0.js"><link rel="prefetch" href="/assets/js/20.468c4e8d.js"><link rel="prefetch" href="/assets/js/21.b9a24f03.js"><link rel="prefetch" href="/assets/js/22.74d9919a.js"><link rel="prefetch" href="/assets/js/23.3765d2d4.js"><link rel="prefetch" href="/assets/js/24.987146f3.js"><link rel="prefetch" href="/assets/js/25.1456b78e.js"><link rel="prefetch" href="/assets/js/26.3e2a8325.js"><link rel="prefetch" href="/assets/js/27.add26a51.js"><link rel="prefetch" href="/assets/js/28.9d5ba05f.js"><link rel="prefetch" href="/assets/js/29.8d60d6a8.js"><link rel="prefetch" href="/assets/js/3.a99730d9.js"><link rel="prefetch" href="/assets/js/30.19811446.js"><link rel="prefetch" href="/assets/js/31.72cca3f5.js"><link rel="prefetch" href="/assets/js/33.4f59465f.js"><link rel="prefetch" href="/assets/js/34.d124cc8f.js"><link rel="prefetch" href="/assets/js/35.5cd9336a.js"><link rel="prefetch" href="/assets/js/36.78918402.js"><link rel="prefetch" href="/assets/js/37.2ce5af46.js"><link rel="prefetch" href="/assets/js/38.eca13021.js"><link rel="prefetch" href="/assets/js/39.fb8bbc2a.js"><link rel="prefetch" href="/assets/js/4.a5e1eadb.js"><link rel="prefetch" href="/assets/js/40.9cc6227d.js"><link rel="prefetch" href="/assets/js/41.8f6783a6.js"><link rel="prefetch" href="/assets/js/42.44e13fe8.js"><link rel="prefetch" href="/assets/js/43.212d8290.js"><link rel="prefetch" href="/assets/js/44.81d199f5.js"><link rel="prefetch" href="/assets/js/45.3791b0e8.js"><link rel="prefetch" href="/assets/js/46.fc6f591a.js"><link rel="prefetch" href="/assets/js/47.8d072f15.js"><link rel="prefetch" href="/assets/js/48.6c5cda3f.js"><link rel="prefetch" href="/assets/js/49.8b370b6f.js"><link rel="prefetch" href="/assets/js/5.9e9ea533.js"><link rel="prefetch" href="/assets/js/50.d8f5c01a.js"><link rel="prefetch" href="/assets/js/51.cc055b69.js"><link rel="prefetch" href="/assets/js/52.8f77dcff.js"><link rel="prefetch" href="/assets/js/53.96f3feb0.js"><link rel="prefetch" href="/assets/js/54.19532d51.js"><link rel="prefetch" href="/assets/js/55.85d0dfb8.js"><link rel="prefetch" href="/assets/js/6.70a4eb21.js"><link rel="prefetch" href="/assets/js/7.e0a3b951.js"><link rel="prefetch" href="/assets/js/8.97277659.js"><link rel="prefetch" href="/assets/js/9.7d7b65a7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="./logo.png" alt="central park" class="logo"> <span class="site-name can-hide">central park</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Javascript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue/vue-cli怎么改造成ssr.html" class="active sidebar-link">vue-cli怎么改造成ssr</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/vue-cli怎么改造成ssr.html#基本配置" class="sidebar-link">基本配置</a></li><li class="sidebar-sub-header"><a href="/vue/vue-cli怎么改造成ssr.html#生成-bundle-文件" class="sidebar-link">生成 bundle 文件</a></li><li class="sidebar-sub-header"><a href="/vue/vue-cli怎么改造成ssr.html#服务端渲染入口" class="sidebar-link">服务端渲染入口</a></li></ul></li><li><a href="/vue/webpack+vue-loader手动配置项目.html" class="sidebar-link">webpack+vue-loader手动配置项目</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构与算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nodejs</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>需求和缺陷</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue-cli怎么改造成ssr"><a href="#vue-cli怎么改造成ssr" class="header-anchor">#</a> vue-cli怎么改造成ssr</h1> <p>安装插件</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> vue-server-renderer webpack-node-externals lodash.merge express --save-dev
+</code></pre></div><h2 id="基本配置"><a href="#基本配置" class="header-anchor">#</a> 基本配置</h2> <p>router/index.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'../views/Home.vue'</span>
+<span class="token keyword">import</span> About <span class="token keyword">from</span> <span class="token string">'../views/About.vue'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span>
+<span class="token comment">// 需要改造变为工厂函数每次返回全新router实例</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    mode<span class="token operator">:</span> <span class="token string">&quot;history&quot;</span><span class="token punctuation">,</span>
+    routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span> component<span class="token operator">:</span> Home <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">&quot;/about&quot;</span><span class="token punctuation">,</span> component<span class="token operator">:</span> About <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>src下添加 entry-client.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 用于浏览器中激活内容</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>createApp<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./app'</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span>app<span class="token punctuation">,</span>router<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">onReady</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 挂载以后页面就激活了称为可交互spa</span>
+    app<span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>src下添加 entry-server.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 首屏渲染</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./app&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// context由express传递进来</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token parameter">context</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 返回Promise</span>
+  <span class="token comment">// 确保将来可能发生的异步数据请求</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> app<span class="token punctuation">,</span> router <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 首屏渲染谁根据url</span>
+    router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    router<span class="token punctuation">.</span><span class="token function">onReady</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>这两个 js 用于生成 bundle 文件</p> <p>配置 vue.config.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 这两个插件分别生成客户端和服务端两个bundle.json</span>
+<span class="token keyword">const</span> VueSSRServerPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;vue-server-renderer/server-plugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// npm install vue-server-renderer</span>
+<span class="token keyword">const</span> VueSSRClientPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;vue-server-renderer/client-plugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> nodeExternals <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;webpack-node-externals&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// npm install webpack-node-externals</span>
+<span class="token keyword">const</span> merge <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;lodash.merge&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// npm install lodash.merge</span>
+<span class="token comment">// 环境变量</span>
+<span class="token keyword">const</span> <span class="token constant">TARGET_NODE</span> <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">WEBPACK_TARGET</span> <span class="token operator">===</span> <span class="token string">&quot;node&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> target <span class="token operator">=</span> <span class="token constant">TARGET_NODE</span> <span class="token operator">?</span> <span class="token string">&quot;server&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;client&quot;</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  css<span class="token operator">:</span> <span class="token punctuation">{</span>
+    extract<span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  outputDir<span class="token operator">:</span> <span class="token string">'./dist/'</span><span class="token operator">+</span>target<span class="token punctuation">,</span>
+  <span class="token function-variable function">configureWebpack</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment">// 将 entry 指向应用程序的 server / client 文件</span>
+    entry<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">./src/entry-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>target<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token comment">// 对 bundle renderer 提供 source map 支持</span>
+    devtool<span class="token operator">:</span> <span class="token string">'source-map'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 这允许 webpack 以 Node 适用方式处理动态导入(dynamic import)，</span>
+    <span class="token comment">// 并且还会在编译 Vue 组件时告知 `vue-loader` 输送面向服务器代码(server-oriented code)。</span>
+    target<span class="token operator">:</span> <span class="token constant">TARGET_NODE</span> <span class="token operator">?</span> <span class="token string">&quot;node&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;web&quot;</span><span class="token punctuation">,</span>
+    node<span class="token operator">:</span> <span class="token constant">TARGET_NODE</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 此处使用 Node 风格导出模块</span>
+      libraryTarget<span class="token operator">:</span> <span class="token constant">TARGET_NODE</span> <span class="token operator">?</span> <span class="token string">&quot;commonjs2&quot;</span> <span class="token operator">:</span> <span class="token keyword">undefined</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 外置化应用程序依赖模块。可以使服务器构建速度更快，并生成较小的 bundle 文件。</span>
+    externals<span class="token operator">:</span> <span class="token constant">TARGET_NODE</span>
+      <span class="token operator">?</span> <span class="token function">nodeExternals</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          <span class="token comment">// 不要外置化 webpack 需要处理的依赖模块。</span>
+          <span class="token comment">// 可以在这里添加更多的文件类型。例如，未处理 *.vue 原始文件，</span>
+          <span class="token comment">// 你还应该将修改 `global`（例如 polyfill）的依赖模块列入白名单</span>
+          whitelist<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token regex">/\.css$/</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+    optimization<span class="token operator">:</span> <span class="token punctuation">{</span>
+      splitChunks<span class="token operator">:</span> <span class="token keyword">undefined</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 这是将服务器的整个输出构建为单个 JSON 文件的插件。</span>
+    <span class="token comment">// 服务端默认文件名为 `vue-ssr-server-bundle.json`</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token constant">TARGET_NODE</span> <span class="token operator">?</span> <span class="token keyword">new</span> <span class="token class-name">VueSSRServerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">VueSSRClientPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">chainWebpack</span><span class="token operator">:</span> <span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    config<span class="token punctuation">.</span>module
+      <span class="token punctuation">.</span><span class="token function">rule</span><span class="token punctuation">(</span><span class="token string">&quot;vue&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">&quot;vue-loader&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token parameter">options</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">merge</span><span class="token punctuation">(</span>options<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          optimizeSSR<span class="token operator">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="生成-bundle-文件"><a href="#生成-bundle-文件" class="header-anchor">#</a> 生成 bundle 文件</h2> <div class="language-js extra-class"><pre class="language-js"><code>scripts<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;build:client&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service build&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;build:server&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross-env WEBPACK_TARGET=node vue-cli-service build --mode server&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm run build:server &amp;&amp; npm run build:client&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> run build
+</code></pre></div><p>该操作会在 <code>dist/</code> 下生成 server 和 client</p> <h2 id="服务端渲染入口"><a href="#服务端渲染入口" class="header-anchor">#</a> 服务端渲染入口</h2> <p>主目录下添加 server/index.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;express&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;fs&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 创建express实例</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 静态文件服务</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">&quot;../dist/client&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> index<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 创建渲染器函数</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> createBundleRenderer <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;vue-server-renderer&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> bundle <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../dist/server/vue-ssr-server-bundle.json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 创建渲染器</span>
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createBundleRenderer</span><span class="token punctuation">(</span>bundle<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  runInNewContext<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  template<span class="token operator">:</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">&quot;./index.html&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  clientManifest<span class="token operator">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../dist/client/vue-ssr-client-manifest.json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 声明路由监听</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 获取page参数</span>
+  <span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> <span class="token string">&quot;ssr&quot;</span><span class="token punctuation">,</span>
+    url<span class="token operator">:</span> req<span class="token punctuation">.</span>url<span class="token punctuation">,</span> <span class="token comment">// 从请求对象中获取url传递下去</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> html <span class="token operator">=</span> <span class="token keyword">await</span> renderer<span class="token punctuation">.</span><span class="token function">renderToString</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;vue ssr is on position！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>主目录下添加 server/index.html</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">&quot;en&quot;</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">&quot;UTF-8&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">&quot;viewport&quot;</span> content<span class="token operator">=</span><span class="token string">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta http<span class="token operator">-</span>equiv<span class="token operator">=</span><span class="token string">&quot;X-UA-Compatible&quot;</span> content<span class="token operator">=</span><span class="token string">&quot;ie=edge&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>Document<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>vue<span class="token operator">-</span>ssr<span class="token operator">-</span>outlet<span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+</code></pre></div><p>渲染内容会被插入到 <code>&lt;!--vue-ssr-outlet--&gt;</code>，固定格式不能修改，比如不能前后加空格。<code>&lt;!-- vue-ssr-outlet --&gt;</code></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> server <span class="token operator">&amp;&amp;</span> node index.js
+</code></pre></div><p>涉及到项目的开发，建议使用 nuxt.js, 本文仅限于研究原理实现。</p> <p>源码地址： https://github.com/pengxingyun/vue-ssr</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Javascript/实现add满足以下功能.html" class="prev">
+        实现add满足以下功能
+      </a></span> <span class="next"><a href="/vue/webpack+vue-loader手动配置项目.html">
+        webpack+vue-loader手动配置项目
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.fb2b0e5f.js" defer></script><script src="/assets/js/2.4a6e408c.js" defer></script><script src="/assets/js/32.a5cb5e82.js" defer></script>
+  </body>
+</html>
