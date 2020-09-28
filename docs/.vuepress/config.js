@@ -102,7 +102,7 @@ module.exports = {
                     'nodejs/npm不完全解析',
                     'nodejs/pm2文档'
                 ]
-            },{
+            }, {
                 title: '需求和缺陷',
                 children: [
                     '需求和缺陷/如何实现一个高亮关键字的搜索框'
